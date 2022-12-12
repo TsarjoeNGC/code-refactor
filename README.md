@@ -1,83 +1,51 @@
-# Code Refactor challenge
-## Description 
 
-Your GitHub profile is an extremely important aspect of your public identity as a developer. A well-crafted one allows you to show off your work to other developers as well as potential employers. An important component of your GitHub profile—and one that many new developers often overlook—is the README.md file.
+# HTML CSS Refactor
 
-The quality of a README often differentiates a good project from a bad project. A good one takes advantage of the opportunity to explain and showcase what your application does, justify the technologies used, and even talk about some of the challenges you faced and features you hope to implement in the future. A good README helps you stand out among the large crowd of developers putting their work on GitHub.
-
-There's no one right way to structure a good README. There is one very wrong way, however, and that is to not include a README at all or to create a very anemic one. This guide outlines a few best practices. As you progress in your career, you will develop your own ideas about what makes a good README.
-
-At a minimum, your project README needs a title and a short description explaining the what, why, and how. What was your motivation? Why did you build this project? (Note: The answer is not "Because it was a homework assignment.") What problem does it solve? What did you learn? What makes your project stand out? 
-
-Lastly, if your project is deployed, include a link to the deployed application here.
-
-If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
-
-If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
+Refactoring is a recommended approach for incrementally improving the CSS codebase while maintaining the current look and feel (design).
 
 
-## Table of Contents (Optional)
+## Key Topics
 
-If your README is very long, add a table of contents to make it easy for users to find what they need.
-
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
-
-
-## Installation
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+- Navigating the file tree
+- Creating, copying, and removing files and directories
+- Fullscreen mode
+- Semantic elements, tags
+-Attributes
+-Best practices: indentation, file naming conventions and directory structure
 
 
-## Usage 
+## What is Refactoring 
+Refactoring is the process of rewriting and restructuring the code to improve the design of the code base. This practice can be applied to any language but this article will focus on HTML and CSS. When refactoring, here are some goals to keep in mind:
 
-Provide instructions and examples for use. Include screenshots as needed. 
+Rewrite to reduce complexity. It’s easy to fall into the trap of over-engineering, especially when you’ve just learn a cool new trick. But try to keep in mind to only add what you need.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Make it reusable. Being able to reuse snippets of code means less code overall and more consistency.
 
-```md
-![alt text](assets/images/screenshot.png)
-```
+Think about how you can make it flexible. This can help to make it easier to reuse and extend features by adding onto existing code snippets.
+
+Make the code easy to read. Use whitespace, indentation and comments for organization. Show your intent by using descriptive class names and comments. Write your code as if you are writing it for someone else to understand. And in some cases you probably are! And even if you are only writing it for yourself, it’s not unusual to come back to a project months later and feel like you have to re-familiarize yourself with the codebase again.
+
+Let’s take a look at some ways to refactor HTML and CSS.
+## Reduce HTML markup
+Something that happens often when adding content and styles to our web projects is inadvertently using too much HTML markup. For example, the <div> element is often used to group or wrap elements to add CSS to them. But it’s not always necessary to throw a <div> around the element that needs to be styled. Every HTML element is its own box and can be styled. In this example, the CSS style will look the same whether you add it to the <h1> element or its container element.
+
+## Create rules for writing CSS
+When it comes to CSS, organizing your code from the beginning can help reduce the amount of refactoring needed later. I use comments for grouping related CSS styles into sections or modules, to lower the chances of writing duplicate or extra code.
+
+Any characters can be included within a CSS comment, as long as they are enclosed within the opening and closing slash and asterisks syntax (/* */). I prefer to add dashes underneath the text, to visually block out these sections. Then I’ll use this same comment style to organize other groupings of related styles for the specific portions of the webpage.
+I always start with the base CSS, which are styles that are applied globally. Then add more specific styles as needed. When I say global CSS, I’m referring to the styles that are applied to all or most of the elements on the page, such as the font-family, defining font colors, general margin and padding styles and font sizes. These global styles are applied to the basic type selectors such as body, headings and links. Then get more specific as needed by applying styles using CSS classes. Even then, start with the more generic class styles like page wrappers and page layout styles.
+## Reduce repetitive code
+If you notice that you are declaring the same styles over and over again, this a good indicator that you could probably do some refactoring. Let’s go over a couple ways to make repetitive code more efficient.
+## Combining selectors
+Combine selectors to target multiple elements at the same time and use the separate declaration blocks for specific element styles. It’ll be easier to make updates to the shared styles and will reduce the amount of code.
+
+## Create reusable classes
+Creating reusable classes will also also reduce repetitive code. Instead of writing the same style for each element with a different selector, create a shared class that can be added to multiple elements. 
+## Helpfull Links
+
+ - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+ - [Version Control](https://en.wikipedia.org/wiki/Version_control)
+ - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+ - [Dev Docs](https://devdocs.io/)
 
 
-## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
-
-
-## License
-
-The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
-
-
----
-
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
-
-## Contributing
-
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
-
----
-
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
